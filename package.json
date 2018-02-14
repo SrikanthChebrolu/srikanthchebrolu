@@ -1,0 +1,31 @@
+{
+  "name": "myprofile",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SrikanthChebrolu/myprofile.git"
+  },
+  "author": "Srikanth Chebrolu",
+  "bugs": {
+    "url": "https://github.com/SrikanthChebrolu/myprofile/issues"
+  },
+  "dependencies": {
+    "material-ui": "^1.0.0-beta.33",
+    "material-ui-icons": "^1.0.0-beta.17",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-flexbox-grid": "^2.0.0",
+    "react-router": "3.0.5"
+  },
+  "devDependencies": {
+    "react-scripts": "0.9.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
