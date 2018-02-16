@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, browserHistory, Route} from 'react-router'
+import { Router, Route, useRouterHistory} from 'react-router'
 import App from './components/App';
 import Resume from "./components/resume";
 import Contact from "./components/contact";
@@ -11,13 +11,33 @@ import Projects from "./components/projects";
 import Publications from "./components/publications";
 import Studies from "./components/studies";
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
+import { Provider } from "react-redux";
 import './App.css';
+import {createStore, applyMiddleware} from "redux";
 
-const theme = createMuiTheme()
+import thunkMIddleware from "redux-thunk"
+
+import responses from './reducers/index';
+
+import {createHistory} from "history";
+
+const theme = createMuiTheme();
+
+
+let store = createStore(
+    responses,
+    applyMiddleware(thunkMIddleware)
+)
+
+
+const appHistory = useRouterHistory(createHistory)({
+    basename: ""
+});
 
 ReactDOM.render((
   <MuiThemeProvider theme={theme}>
-    <Router history={browserHistory}>
+    <Provider store={store}>
+    <Router history={appHistory}>
       <Route path="/" component={App}/>
       <Route path="/resume" component={Resume}/>
       <Route path="/contact" component={Contact}/>
@@ -28,5 +48,6 @@ ReactDOM.render((
       <Route path="/publications" component={Publications}/>
       <Route path="/studies" component={Studies}/>
     </Router>
+    </Provider>
   </MuiThemeProvider>
 ), document.getElementById('app-root'));

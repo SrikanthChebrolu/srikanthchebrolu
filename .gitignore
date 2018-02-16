@@ -40,6 +40,9 @@ build/
 # Typescript v1 declaration files
 typings/
 
+.idea/
+.idea/vcs.xml
+
 # Optional npm cache directory
 .npm
 
@@ -57,3 +60,12 @@ typings/
 
 # dotenv environment variables file
 .env
+public/sri_144.png
+public/sri_168.png
+public/sri_192.png
+public/sri_48.png
+public/sri_72.png
+public/sri_96.png
+src/actions/
+src/reducers/
+src/store.js

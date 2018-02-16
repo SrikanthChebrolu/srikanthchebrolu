@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Component, PropTypes }  from 'react';
 import { withStyles } from 'material-ui/styles';
 import classNames from 'classnames';
 import Drawer from 'material-ui/Drawer';
@@ -13,13 +12,16 @@ import MenuIcon from 'material-ui-icons/Menu';
 import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
 import ChevronRightIcon from 'material-ui-icons/ChevronRight';
 import Avatar from 'material-ui/Avatar';
-
+import { connect } from "react-redux";
+import { compose } from 'redux'
 import {Link} from 'react-router';
 import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import InboxIcon from 'material-ui-icons/MoveToInbox';
 import DraftsIcon from 'material-ui-icons/Drafts';
 import StarIcon from 'material-ui-icons/Star';
 import SendIcon from 'material-ui-icons/Send';
+
+import { getAllGithubProjectsList } from '../actions/projects/githubprojects.action';
 
 const drawerWidth = 240;
 
@@ -108,7 +110,7 @@ const styles = theme => ({
   }
 });
 
-class MiniDrawer extends React.Component {
+class MiniDrawer extends Component {
   state = {
     open: false,
   };
@@ -121,7 +123,13 @@ class MiniDrawer extends React.Component {
     this.setState({ open: false });
   };
 
+    componentDidMount() {
+        //var payload = {"requestStatus": "APPROVED", "requestType": "Analysis"};
+        let {dispatch} = this.props;
+        dispatch(getAllGithubProjectsList());
+    }
   render() {
+      console.log(this.props);
     const { classes, theme } = this.props;
 
     return (
@@ -254,7 +262,13 @@ class MiniDrawer extends React.Component {
 
 MiniDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired
 };
 
-export default withStyles(styles, { withTheme: true })(MiniDrawer);
+function mapStateToProps(state) {
+    return {
+        githubprojects: state.githubProjectsReducer.githubprojects
+    }
+}
+
+export default compose( withStyles(styles, { withTheme: true }, connect(mapStateToProps))(MiniDrawer));
