@@ -2,14 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, useRouterHistory} from 'react-router'
 import App from './components/App';
-import Resume from "./components/resume";
+import Resume from "./components/resume/resume";
 import Contact from "./components/contact";
 import Hobbies from "./components/hobbies";
-import Jobs from "./components/jobs";
+import Jobs from "./components/jobs/jobs";
 import Posts from "./components/posts";
 import Projects from "./components/projects";
 import Publications from "./components/publications";
-import Studies from "./components/studies";
+import Education from "./components/education/education";
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 import { Provider } from "react-redux";
 import './App.css';
@@ -46,7 +46,7 @@ ReactDOM.render((
       <Route path="/posts" component={Posts}/>
       <Route path="/projects" component={Projects}/>
       <Route path="/publications" component={Publications}/>
-      <Route path="/studies" component={Studies}/>
+      <Route path="/education" component={Education}/>
     </Router>
     </Provider>
   </MuiThemeProvider>
