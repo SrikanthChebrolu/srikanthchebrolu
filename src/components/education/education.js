@@ -300,13 +300,13 @@ class ResponsiveDrawer extends React.Component {
                                         <Typography>
                                             Thanks for visiting my education background - you&quot;re finished, click reset to Start again
                                         </Typography>
-                                        <Button onClick={this.handleReset}>Reset</Button>
+                                        <Button variant="raised" color="primary" onClick={this.handleReset}>Reset</Button>
                                     </div>
                                 ) : (
                                     <div>
                                         <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
                                         <div>
-                                            <Button
+                                            <Button variant="raised" color="primary"
                                                 disabled={activeStep === 0}
                                                 onClick={this.handleBack}
                                                 className={classes.backButton}

@@ -13,22 +13,13 @@ import Education from "./components/education/education";
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 import { Provider } from "react-redux";
 import './App.css';
-import {createStore, applyMiddleware} from "redux";
-
-import thunkMIddleware from "redux-thunk"
-
-import responses from './reducers/index';
+import configureStore from './store'
 
 import {createHistory} from "history";
 
 const theme = createMuiTheme();
 
-
-let store = createStore(
-    responses,
-    applyMiddleware(thunkMIddleware)
-)
-
+const store = configureStore();
 
 const appHistory = useRouterHistory(createHistory)({
     basename: ""

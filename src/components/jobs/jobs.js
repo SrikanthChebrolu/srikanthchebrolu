@@ -11,7 +11,8 @@ import Hidden from 'material-ui/Hidden';
 import Divider from 'material-ui/Divider';
 import MenuIcon from 'material-ui-icons/Menu';
 import Avatar from 'material-ui/Avatar';
-
+import Button from 'material-ui/Button';
+import Stepper, { Step, StepLabel, StepContent } from 'material-ui/Stepper';
 import {Link} from 'react-router';
 import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import Hobbies from 'material-ui-icons/ThumbUp';
@@ -24,13 +25,16 @@ import Contact from 'material-ui-icons/Contacts';
 import Work from 'material-ui-icons/Work';
 import Resume from 'material-ui-icons/ImportContacts';
 import classNames from 'classnames';
+import Paper from 'material-ui/Paper';
+import WellsFargo from './wellsfargo';
+import Pfizer from './pfizer';
+import Genentech from './genentech';
 
 const drawerWidth = 240;
 
 const styles = theme => ({
     root: {
         flexGrow: 1,
-        height: 430,
         zIndex: 1,
         overflow: 'hidden',
         position: 'relative',
@@ -57,17 +61,70 @@ const styles = theme => ({
         },
     },
     content: {
+        width: '100%',
         flexGrow: 1,
         backgroundColor: theme.palette.background.default,
-        padding: theme.spacing.unit * 3,
+        padding: 24,
+        height: 'calc(100% - 56px)',
+        marginTop: 56,
+        [theme.breakpoints.up('sm')]: {
+            height: 'calc(100% - 64px)',
+            marginTop: 64,
+        },
     },
     noUnderLine: { textDecoration: 'none' },
-    textColour: { color: 'white' }
+    textColour: { color: 'white' },
+    button: {
+        marginTop: theme.spacing.unit,
+        marginRight: theme.spacing.unit,
+    },
+    actionsContainer: {
+        marginBottom: theme.spacing.unit * 2,
+    },
+    resetContainer: {
+        padding: theme.spacing.unit * 3,
+    },
 });
+
+function getSteps() {
+    return ['Application Developer at WellsFargo', 'Web Developer at Pfizer', 'Software Engineer at Genentech'];
+}
+
+function getStepContent(step) {
+    switch (step) {
+        case 0:
+            return <WellsFargo/>;
+        case 1:
+            return <Pfizer/>;
+        case 2:
+            return <Genentech/>;
+        default:
+            return 'Unknown step';
+    }
+}
 
 class ResponsiveDrawer extends React.Component {
     state = {
         mobileOpen: false,
+        activeStep: 0,
+    };
+
+    handleNext = () => {
+        this.setState({
+            activeStep: this.state.activeStep + 1,
+        });
+    };
+
+    handleBack = () => {
+        this.setState({
+            activeStep: this.state.activeStep - 1,
+        });
+    };
+
+    handleReset = () => {
+        this.setState({
+            activeStep: 0,
+        });
     };
 
     handleDrawerToggle = () => {
@@ -76,6 +133,8 @@ class ResponsiveDrawer extends React.Component {
 
     render() {
         const { classes, theme } = this.props;
+        const steps = getSteps();
+        const { activeStep } = this.state;
 
         const drawer = (
             <div>
@@ -218,8 +277,46 @@ class ResponsiveDrawer extends React.Component {
                     </Drawer>
                 </Hidden>
                 <main className={classes.content}>
-                    <div className={classes.toolbar} />
-                    <Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
+                    <Stepper activeStep={activeStep} orientation="vertical">
+                        {steps.map((label, index) => {
+                            return (
+                                <Step key={label}>
+                                    <StepLabel>{label}</StepLabel>
+                                    <StepContent>
+                                        <Typography>{getStepContent(index)}</Typography>
+                                        <div className={classes.actionsContainer}>
+                                            <div>
+                                                <Button variant="raised"
+                                                        color="primary"
+                                                    disabled={activeStep === 0}
+                                                    onClick={this.handleBack}
+                                                    className={classes.button}
+                                                >
+                                                    Back
+                                                </Button>
+                                                <Button
+                                                    variant="raised"
+                                                    color="primary"
+                                                    onClick={this.handleNext}
+                                                    className={classes.button}
+                                                >
+                                                    {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                                                </Button>
+                                            </div>
+                                        </div>
+                                    </StepContent>
+                                </Step>
+                            );
+                        })}
+                    </Stepper>
+                    {activeStep === steps.length && (
+                        <Paper square elevation={0} className={classes.resetContainer}>
+                            <Typography>All steps completed - you&quot;re finished</Typography>
+                            <Button variant="raised" color="primary" onClick={this.handleReset} className={classes.button}>
+                                Reset
+                            </Button>
+                        </Paper>
+                    )}
                 </main>
             </div>
         );

@@ -17,20 +17,29 @@ import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import Hobbies from 'material-ui-icons/ThumbUp';
 import School from 'material-ui-icons/School';
 import Publications from 'material-ui-icons/Book';
-import Posts from 'material-ui-icons/Create';
+import Create from 'material-ui-icons/Create';
 import Code from 'material-ui-icons/Code';
 import Sri from 'material-ui-icons/Face';
 import Contact from 'material-ui-icons/Contacts';
 import Work from 'material-ui-icons/Work';
 import Resume from 'material-ui-icons/ImportContacts';
 import classNames from 'classnames';
+import compose from 'recompose/compose';
+import { connect } from 'react-redux';
+import Picker from './test/picker';
+import Posts from './test/posts';
+
+import {
+    selectSubreddit,
+    fetchPostsIfNeeded,
+    invalidateSubreddit
+} from '../actions/projects/githubprojects.action'
 
 const drawerWidth = 240;
 
 const styles = theme => ({
     root: {
         flexGrow: 1,
-        height: 430,
         zIndex: 1,
         overflow: 'hidden',
         position: 'relative',
@@ -66,6 +75,39 @@ const styles = theme => ({
 });
 
 class ResponsiveDrawer extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.handleChange = this.handleChange.bind(this)
+        this.handleRefreshClick = this.handleRefreshClick.bind(this)
+    }
+
+    componentDidMount() {
+        const { dispatch, selectedSubreddit } = this.props
+        dispatch(fetchPostsIfNeeded(selectedSubreddit))
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.selectedSubreddit !== prevProps.selectedSubreddit) {
+            const { dispatch, selectedSubreddit } = this.props
+            dispatch(fetchPostsIfNeeded(selectedSubreddit))
+        }
+    }
+
+    handleChange(nextSubreddit) {
+        this.props.dispatch(selectSubreddit(nextSubreddit))
+        this.props.dispatch(fetchPostsIfNeeded(nextSubreddit))
+    }
+
+    handleRefreshClick(e) {
+        e.preventDefault()
+
+        const { dispatch, selectedSubreddit } = this.props
+        dispatch(invalidateSubreddit(selectedSubreddit))
+        dispatch(fetchPostsIfNeeded(selectedSubreddit))
+    }
+
+
     state = {
         mobileOpen: false,
     };
@@ -76,6 +118,7 @@ class ResponsiveDrawer extends React.Component {
 
     render() {
         const { classes, theme } = this.props;
+        const { selectedSubreddit, posts, isFetching, lastUpdated } = this.props
 
         const drawer = (
             <div>
@@ -146,7 +189,7 @@ class ResponsiveDrawer extends React.Component {
                     <Link to="/posts" className={classes.noUnderLine}>
                         <ListItem button>
                             <ListItemIcon>
-                                <Posts />
+                                <Create />
                             </ListItemIcon>
                             <ListItemText primary="Posts" />
                         </ListItem>
@@ -218,8 +261,30 @@ class ResponsiveDrawer extends React.Component {
                     </Drawer>
                 </Hidden>
                 <main className={classes.content}>
-                    <div className={classes.toolbar} />
-                    <Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
+                    <div>
+                        <Picker
+                            value={selectedSubreddit}
+                            onChange={this.handleChange}
+                            options={['reactjs', 'frontend']}
+                        />
+                        <p>
+                            {lastUpdated &&
+                            <span>
+              Last updated at {new Date(lastUpdated).toLocaleTimeString()}.
+                                {' '}
+            </span>}
+                            {!isFetching &&
+                            <a href="#" onClick={this.handleRefreshClick}>
+                                Refresh
+                            </a>}
+                        </p>
+                        {isFetching && posts.length === 0 && <h2>Loading...</h2>}
+                        {!isFetching && posts.length === 0 && <h2>Empty.</h2>}
+                        {posts.length > 0 &&
+                        <div style={{ opacity: isFetching ? 0.5 : 1 }}>
+                            <Posts posts={posts} />
+                        </div>}
+                    </div>
                 </main>
             </div>
         );
@@ -229,6 +294,33 @@ class ResponsiveDrawer extends React.Component {
 ResponsiveDrawer.propTypes = {
     classes: PropTypes.object.isRequired,
     theme: PropTypes.object.isRequired,
+    selectedSubreddit: PropTypes.string.isRequired,
+    posts: PropTypes.array.isRequired,
+    isFetching: PropTypes.bool.isRequired,
+    lastUpdated: PropTypes.number,
+    dispatch: PropTypes.func.isRequired
 };
 
-export default withStyles(styles, { withTheme: true })(ResponsiveDrawer);
+function mapStateToProps(state) {
+    const { selectedSubreddit, postsBySubreddit } = state
+    const {
+        isFetching,
+        lastUpdated,
+        items: posts
+    } = postsBySubreddit[selectedSubreddit] || {
+        isFetching: true,
+        items: []
+    }
+
+    return {
+        selectedSubreddit,
+        posts,
+        isFetching,
+        lastUpdated
+    }
+}
+
+export default compose(
+    withStyles(styles, { withTheme: true }, { name: 'ResponsiveDrawer' }),
+    connect(mapStateToProps, null)
+)(ResponsiveDrawer);

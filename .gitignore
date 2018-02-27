@@ -60,12 +60,5 @@ typings/
 
 # dotenv environment variables file
 .env
-public/images/sri_144.png
-public/images/sri_168.png
-public/images/sri_192.png
-public/images/sri_48.png
-public/images/sri_72.png
-public/images/sri_96.png
-src/actions/
-src/reducers/
-src/store.js
+
+

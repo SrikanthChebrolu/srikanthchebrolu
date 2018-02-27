@@ -23,14 +23,31 @@ import Sri from 'material-ui-icons/Face';
 import Contact from 'material-ui-icons/Contacts';
 import Work from 'material-ui-icons/Work';
 import Resume from 'material-ui-icons/ImportContacts';
+import Paper from 'material-ui/Paper';
+import Tabs, { Tab } from 'material-ui/Tabs';
+import PhoneIcon from 'material-ui-icons/Phone';
+import FavoriteIcon from 'material-ui-icons/Favorite';
+import PersonPinIcon from 'material-ui-icons/PersonPin';
+
 import classNames from 'classnames';
 
 const drawerWidth = 240;
 
+function TabContainer(props) {
+    return (
+        <Typography component="div" style={{ padding: 8 * 3 }}>
+            {props.children}
+        </Typography>
+    );
+}
+
+TabContainer.propTypes = {
+    children: PropTypes.node.isRequired,
+};
+
 const styles = theme => ({
     root: {
         flexGrow: 1,
-        height: 430,
         zIndex: 1,
         overflow: 'hidden',
         position: 'relative',
@@ -58,8 +75,9 @@ const styles = theme => ({
     },
     content: {
         flexGrow: 1,
-        backgroundColor: theme.palette.background.default,
-        padding: theme.spacing.unit * 3,
+        width: '100%',
+        marginTop: theme.spacing.unit * 3,
+        backgroundColor: theme.palette.background.paper,
     },
     noUnderLine: { textDecoration: 'none' },
     textColour: { color: 'white' }
@@ -68,14 +86,20 @@ const styles = theme => ({
 class ResponsiveDrawer extends React.Component {
     state = {
         mobileOpen: false,
+        value: 0,
     };
 
     handleDrawerToggle = () => {
         this.setState({ mobileOpen: !this.state.mobileOpen });
     };
 
+    handleChange = (event, value) => {
+        this.setState({ value });
+    };
+
     render() {
         const { classes, theme } = this.props;
+        const { value } = this.state;
 
         const drawer = (
             <div>
@@ -218,8 +242,22 @@ class ResponsiveDrawer extends React.Component {
                     </Drawer>
                 </Hidden>
                 <main className={classes.content}>
-                    <div className={classes.toolbar} />
-                    <Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
+                    <Paper style={{ width: 500 }}>
+                        <Tabs
+                            value={this.state.value}
+                            onChange={this.handleChange}
+                            fullWidth
+                            indicatorColor="secondary"
+                            textColor="secondary"
+                        >
+                            <Tab icon={<PhoneIcon />} label="RECENTS" />
+                            <Tab icon={<FavoriteIcon />} label="FAVORITES" />
+                            <Tab icon={<PersonPinIcon />} label="NEARBY" />
+                        </Tabs>
+                        {value === 0 && <TabContainer>Item One</TabContainer>}
+                        {value === 1 && <TabContainer>Item Two</TabContainer>}
+                        {value === 2 && <TabContainer>Item Three</TabContainer>}
+                    </Paper>
                 </main>
             </div>
         );
