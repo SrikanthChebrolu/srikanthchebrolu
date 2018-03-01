@@ -56,7 +56,7 @@ class RecipeReviewCard extends React.Component {
                     <CardMedia
                         className={classes.media}
                         image={GraduationGif}
-                        title="Contemplative Reptile"
+                        title="Genentech"
                     />
                     <CardContent>
                         <Typography component="p">

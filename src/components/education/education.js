@@ -1,7 +1,8 @@
-
-
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import {Link} from 'react-router';
+
 import { withStyles } from 'material-ui/styles';
 import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
@@ -13,16 +14,10 @@ import Hidden from 'material-ui/Hidden';
 import Divider from 'material-ui/Divider';
 import MenuIcon from 'material-ui-icons/Menu';
 import Avatar from 'material-ui/Avatar';
-
 import Stepper, { Step, StepLabel } from 'material-ui/Stepper';
+import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import Button from 'material-ui/Button';
 
-import UnderGraduate from './undergraduate';
-import FirstMasters from './firstmasters';
-import SecondMasters from './secongmasters';
-
-import {Link} from 'react-router';
-import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import Hobbies from 'material-ui-icons/ThumbUp';
 import School from 'material-ui-icons/School';
 import Publications from 'material-ui-icons/Book';
@@ -32,7 +27,10 @@ import Sri from 'material-ui-icons/Face';
 import Contact from 'material-ui-icons/Contacts';
 import Work from 'material-ui-icons/Work';
 import Resume from 'material-ui-icons/ImportContacts';
-import classNames from 'classnames';
+
+import UnderGraduate from './undergraduate';
+import FirstMasters from './firstmasters';
+import SecondMasters from './secongmasters';
 
 const drawerWidth = 240;
 
@@ -67,7 +65,6 @@ const styles = theme => ({
     content: {
         width: '100%',
         flexGrow: 1,
-        backgroundColor: theme.palette.background.default,
         padding: 24,
         height: 'calc(100% - 56px)',
         marginTop: 56,

@@ -1,16 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import { withStyles } from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
-import GifPlayer from 'react-gif-player';
-import GraduationGif from '../../static/graduation.gif';
 import Grid from 'material-ui/Grid';
 import ExpansionPanel, {
     ExpansionPanelDetails,
     ExpansionPanelSummary,
 } from 'material-ui/ExpansionPanel';
+
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
+
+import GifPlayer from 'react-gif-player';
+
+import GraduationGif from '../../static/graduation.gif';
 
 const styles = theme => ({
     root: theme.mixins.gutters({
@@ -75,7 +79,7 @@ class UnderGraduate  extends React.Component{
                 </Paper>
                 <Paper className={classes.root}>
                     <Typography variant="headline" component="h3">
-                        This is a sheet of paper.
+
                     </Typography>
 
                     <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>

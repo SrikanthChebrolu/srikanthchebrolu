@@ -63,7 +63,6 @@ const styles = theme => ({
     content: {
         width: '100%',
         flexGrow: 1,
-        backgroundColor: theme.palette.background.default,
         padding: 24,
         height: 'calc(100% - 56px)',
         marginTop: 56,
@@ -311,7 +310,7 @@ class ResponsiveDrawer extends React.Component {
                     </Stepper>
                     {activeStep === steps.length && (
                         <Paper square elevation={0} className={classes.resetContainer}>
-                            <Typography>All steps completed - you&quot;re finished</Typography>
+                            <Typography>Thank for visiting my work experience - you&quot;re finished</Typography>
                             <Button variant="raised" color="primary" onClick={this.handleReset} className={classes.button}>
                                 Reset
                             </Button>

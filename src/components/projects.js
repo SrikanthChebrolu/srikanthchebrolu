@@ -17,13 +17,22 @@ import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import Hobbies from 'material-ui-icons/ThumbUp';
 import School from 'material-ui-icons/School';
 import Publications from 'material-ui-icons/Book';
-import Posts from 'material-ui-icons/Create';
+import Create from 'material-ui-icons/Create';
 import Code from 'material-ui-icons/Code';
 import Sri from 'material-ui-icons/Face';
 import Contact from 'material-ui-icons/Contacts';
 import Work from 'material-ui-icons/Work';
 import Resume from 'material-ui-icons/ImportContacts';
 import classNames from 'classnames';
+import compose from 'recompose/compose';
+import { connect } from 'react-redux';
+
+import Card, { CardActions, CardContent } from 'material-ui/Card';
+import Button from 'material-ui/Button';
+
+import {
+    fetchReos
+} from '../actions/projects/githubprojects.action'
 
 const drawerWidth = 240;
 
@@ -56,15 +65,45 @@ const styles = theme => ({
         },
     },
     content: {
+        width: '100%',
         flexGrow: 1,
-        backgroundColor: theme.palette.background.default,
-        padding: theme.spacing.unit * 3,
+        padding: 24,
+        height: 'calc(100% - 56px)',
+        marginTop: 56,
+        [theme.breakpoints.up('sm')]: {
+            height: 'calc(100% - 64px)',
+            marginTop: 64,
+        },
     },
     noUnderLine: { textDecoration: 'none' },
-    textColour: { color: 'white' }
+    textColour: { color: 'white' },
+    card: {
+        margin: '0 2px',
+        marginBottom: 16,
+    },
+    bullet: {
+        display: 'inline-block',
+        margin: '0 2px',
+        transform: 'scale(0.8)',
+    },
+    title: {
+        marginBottom: 16,
+        fontSize: 14,
+        color: theme.palette.text.secondary,
+    },
+    pos: {
+        marginBottom: 12,
+        color: theme.palette.text.secondary,
+    },
 });
 
 class ResponsiveDrawer extends React.Component {
+
+    componentWillMount() {
+        const {dispatch} = this.props;
+        dispatch(fetchReos());
+    }
+
     state = {
         mobileOpen: false,
     };
@@ -76,6 +115,7 @@ class ResponsiveDrawer extends React.Component {
     render() {
         const { classes, theme } = this.props;
 
+        console.log(this.props.repos);
         const drawer = (
             <div>
                 <div className={classes.toolbar} />
@@ -145,7 +185,7 @@ class ResponsiveDrawer extends React.Component {
                     <Link to="/posts" className={classes.noUnderLine}>
                         <ListItem button>
                             <ListItemIcon>
-                                <Posts />
+                                <Create />
                             </ListItemIcon>
                             <ListItemText primary="Posts" />
                         </ListItem>
@@ -217,8 +257,28 @@ class ResponsiveDrawer extends React.Component {
                     </Drawer>
                 </Hidden>
                 <main className={classes.content}>
-                    <div className={classes.toolbar} />
-                    <Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
+                    <h1>My Github projects</h1>
+                    <div>
+                        {this.props.repos.map(function(repo, index){
+                            return (<div>
+                                <Card className={classes.card}>
+                                    <CardContent>
+                                        <Typography className={classes.title}></Typography>
+                                        <Typography variant="headline" component="h2">
+                                            { repo.name }
+                                        </Typography>
+                                        <Typography className={classes.pos}>{ repo.language }</Typography>
+                                        <Typography component="p">
+                                            { repo.description }
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions>
+                                        <Button size="small" href={ repo.html_url }>Learn More</Button>
+                                    </CardActions>
+                                </Card>
+                            </div>);
+                        })}
+                    </div>
                 </main>
             </div>
         );
@@ -228,6 +288,16 @@ class ResponsiveDrawer extends React.Component {
 ResponsiveDrawer.propTypes = {
     classes: PropTypes.object.isRequired,
     theme: PropTypes.object.isRequired,
+    dispatch: PropTypes.func.isRequired
 };
 
-export default withStyles(styles, { withTheme: true })(ResponsiveDrawer);
+function mapStateToProps(state) {
+    return {
+        repos: state.getRepositories.repos
+    }
+}
+
+export default compose(
+    withStyles(styles, { withTheme: true }, { name: 'ResponsiveDrawer' }),
+    connect(mapStateToProps, null)
+)(ResponsiveDrawer);

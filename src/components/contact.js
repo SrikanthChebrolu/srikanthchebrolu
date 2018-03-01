@@ -23,11 +23,8 @@ import Sri from 'material-ui-icons/Face';
 import Contact from 'material-ui-icons/Contacts';
 import Work from 'material-ui-icons/Work';
 import Resume from 'material-ui-icons/ImportContacts';
-import Paper from 'material-ui/Paper';
-import Tabs, { Tab } from 'material-ui/Tabs';
-import PhoneIcon from 'material-ui-icons/Phone';
-import FavoriteIcon from 'material-ui-icons/Favorite';
-import PersonPinIcon from 'material-ui-icons/PersonPin';
+import Button from 'material-ui/Button';
+import Grade from 'material-ui-icons/Grade';
 
 import classNames from 'classnames';
 
@@ -74,13 +71,27 @@ const styles = theme => ({
         },
     },
     content: {
-        flexGrow: 1,
         width: '100%',
-        marginTop: theme.spacing.unit * 3,
-        backgroundColor: theme.palette.background.paper,
+        flexGrow: 1,
+        padding: 24,
+        height: 'calc(100% - 56px)',
+        marginTop: 56,
+        [theme.breakpoints.up('sm')]: {
+            height: 'calc(100% - 64px)',
+            marginTop: 64,
+        },
     },
     noUnderLine: { textDecoration: 'none' },
-    textColour: { color: 'white' }
+    textColour: { color: 'white' },
+    button: {
+        margin: theme.spacing.unit,
+    },
+    leftIcon: {
+        marginRight: theme.spacing.unit,
+    },
+    rightIcon: {
+        marginLeft: theme.spacing.unit,
+    },
 });
 
 class ResponsiveDrawer extends React.Component {
@@ -93,13 +104,8 @@ class ResponsiveDrawer extends React.Component {
         this.setState({ mobileOpen: !this.state.mobileOpen });
     };
 
-    handleChange = (event, value) => {
-        this.setState({ value });
-    };
-
     render() {
         const { classes, theme } = this.props;
-        const { value } = this.state;
 
         const drawer = (
             <div>
@@ -242,22 +248,10 @@ class ResponsiveDrawer extends React.Component {
                     </Drawer>
                 </Hidden>
                 <main className={classes.content}>
-                    <Paper style={{ width: 500 }}>
-                        <Tabs
-                            value={this.state.value}
-                            onChange={this.handleChange}
-                            fullWidth
-                            indicatorColor="secondary"
-                            textColor="secondary"
-                        >
-                            <Tab icon={<PhoneIcon />} label="RECENTS" />
-                            <Tab icon={<FavoriteIcon />} label="FAVORITES" />
-                            <Tab icon={<PersonPinIcon />} label="NEARBY" />
-                        </Tabs>
-                        {value === 0 && <TabContainer>Item One</TabContainer>}
-                        {value === 1 && <TabContainer>Item Two</TabContainer>}
-                        {value === 2 && <TabContainer>Item Three</TabContainer>}
-                    </Paper>
+                    <Button className={classes.button} variant="raised" size="small" href="https://srikanthchebrolu.typeform.com/to/nndFWH" >
+                        <Grade className={classes.leftIcon} />
+                        Let us Know
+                    </Button>
                 </main>
             </div>
         );
@@ -270,3 +264,4 @@ ResponsiveDrawer.propTypes = {
 };
 
 export default withStyles(styles, { withTheme: true })(ResponsiveDrawer);
+
