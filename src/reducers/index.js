@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import { getRepositories } from './projects/githubprojects.reducer';
+import { getLatestNews } from './projects/news.reducer';
 
 const rootReducer = combineReducers({
-    getRepositories
+    getRepositories,
+    getLatestNews
 });
 
 export default rootReducer;

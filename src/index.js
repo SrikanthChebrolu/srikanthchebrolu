@@ -10,6 +10,7 @@ import Posts from "./components/posts";
 import Projects from "./components/projects";
 import Publications from "./components/publications";
 import Education from "./components/education/education";
+import News from "./components/news/news";
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 import { Provider } from "react-redux";
 import './App.css';
@@ -26,19 +27,20 @@ const appHistory = useRouterHistory(createHistory)({
 });
 
 ReactDOM.render((
-  <MuiThemeProvider theme={theme}>
-    <Provider store={store}>
-    <Router history={appHistory}>
-      <Route path="/" component={App}/>
-      <Route path="/resume" component={Resume}/>
-      <Route path="/contact" component={Contact}/>
-      <Route path="/hobbies" component={Hobbies}/>
-      <Route path="/jobs" component={Jobs}/>
-      <Route path="/posts" component={Posts}/>
-      <Route path="/projects" component={Projects}/>
-      <Route path="/publications" component={Publications}/>
-      <Route path="/education" component={Education}/>
-    </Router>
-    </Provider>
-  </MuiThemeProvider>
+    <MuiThemeProvider theme={theme}>
+        <Provider store={store}>
+            <Router history={appHistory}>
+                <Route path="/" component={App}/>
+                <Route path="/resume" component={Resume}/>
+                <Route path="/contact" component={Contact}/>
+                <Route path="/news" component={News}/>
+                <Route path="/hobbies" component={Hobbies}/>
+                <Route path="/jobs" component={Jobs}/>
+                <Route path="/posts" component={Posts}/>
+                <Route path="/projects" component={Projects}/>
+                <Route path="/publications" component={Publications}/>
+                <Route path="/education" component={Education}/>
+            </Router>
+        </Provider>
+    </MuiThemeProvider>
 ), document.getElementById('app-root'));

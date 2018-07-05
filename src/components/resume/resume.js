@@ -16,6 +16,7 @@ import {Link} from 'react-router';
 import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import Hobbies from 'material-ui-icons/ThumbUp';
 import School from 'material-ui-icons/School';
+import NewReleases from 'material-ui-icons/NewReleases';
 import Publications from 'material-ui-icons/Book';
 import Posts from 'material-ui-icons/Create';
 import Code from 'material-ui-icons/Code';
@@ -155,6 +156,15 @@ class ResponsiveDrawer extends React.Component {
                                 <Posts />
                             </ListItemIcon>
                             <ListItemText primary="Posts" />
+                        </ListItem>
+                    </Link>
+                    <Divider/>
+                    <Link to="/news" className={classes.noUnderLine}>
+                        <ListItem button >
+                            <ListItemIcon>
+                                <NewReleases />
+                            </ListItemIcon>
+                            <ListItemText primary="Latest News" />
                         </ListItem>
                     </Link>
                     <Divider/>

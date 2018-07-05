@@ -28,6 +28,8 @@ import Contact from 'material-ui-icons/Contacts';
 import Work from 'material-ui-icons/Work';
 import Resume from 'material-ui-icons/ImportContacts';
 
+import NewReleases from 'material-ui-icons/NewReleases';
+
 import UnderGraduate from './undergraduate';
 import FirstMasters from './firstmasters';
 import SecondMasters from './secongmasters';
@@ -212,6 +214,15 @@ class ResponsiveDrawer extends React.Component {
                                 <Posts />
                             </ListItemIcon>
                             <ListItemText primary="Posts" />
+                        </ListItem>
+                    </Link>
+                    <Divider/>
+                    <Link to="/news" className={classes.noUnderLine}>
+                        <ListItem button >
+                            <ListItemIcon>
+                                <NewReleases />
+                            </ListItemIcon>
+                            <ListItemText primary="Latest News" />
                         </ListItem>
                     </Link>
                     <Divider/>

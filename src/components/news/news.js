@@ -11,7 +11,7 @@ import Hidden from 'material-ui/Hidden';
 import Divider from 'material-ui/Divider';
 import MenuIcon from 'material-ui-icons/Menu';
 import Avatar from 'material-ui/Avatar';
-
+import Card, { CardContent } from 'material-ui/Card';
 import NewReleases from 'material-ui-icons/NewReleases';
 import {Link} from 'react-router';
 import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
@@ -24,24 +24,17 @@ import Sri from 'material-ui-icons/Face';
 import Contact from 'material-ui-icons/Contacts';
 import Work from 'material-ui-icons/Work';
 import Resume from 'material-ui-icons/ImportContacts';
-import Button from 'material-ui/Button';
-import Grade from 'material-ui-icons/Grade';
-
 import classNames from 'classnames';
+import {connect} from "react-redux";
+import compose from "recompose/compose";
+import {fetchNews} from "../../actions/news.action";
+import CardMedia from 'material-ui/Card/CardMedia';
+import CardHeader from 'material-ui/Card/CardHeader';
+import CardActions from 'material-ui/Card/CardActions';
+import Button from 'material-ui/Button';
+import red from "material-ui/colors/red";
 
 const drawerWidth = 240;
-
-function TabContainer(props) {
-    return (
-        <Typography component="div" style={{ padding: 8 * 3 }}>
-            {props.children}
-        </Typography>
-    );
-}
-
-TabContainer.propTypes = {
-    children: PropTypes.node.isRequired,
-};
 
 const styles = theme => ({
     root: {
@@ -84,22 +77,46 @@ const styles = theme => ({
     },
     noUnderLine: { textDecoration: 'none' },
     textColour: { color: 'white' },
+    stretch: {
+        width: '100%'
+    }, card: {
+        width: '90%',
+        margin: '0 2px',
+        marginBottom: 16,
+    },
+    media: {
+        height: 0,
+        paddingTop: '56.25%', // 16:9
+        margin: 10
+    },
+    title: {
+        margin: 16,
+        marginTop: 0,
+        fontSize: 20,
+        color: theme.palette.text.secondary,
+        fontWeight: 'bold',
+    },
+    actions: {
+        display: 'flex',
+    },
+    avatar: {
+        backgroundColor: red[500],
+    },
     button: {
+        align: 'left',
         margin: theme.spacing.unit,
-    },
-    leftIcon: {
-        marginRight: theme.spacing.unit,
-    },
-    rightIcon: {
-        marginLeft: theme.spacing.unit,
     },
 });
 
-class ResponsiveDrawer extends React.Component {
+class News extends React.Component {
     state = {
         mobileOpen: false,
-        value: 0,
     };
+
+    componentWillMount() {
+        const {dispatch} = this.props;
+        dispatch(fetchNews());
+    }
 
     handleDrawerToggle = () => {
         this.setState({ mobileOpen: !this.state.mobileOpen });
@@ -188,7 +205,7 @@ class ResponsiveDrawer extends React.Component {
                             <ListItemIcon>
                                 <NewReleases />
                             </ListItemIcon>
-                            <ListItemText primary="Tech News" />
+                            <ListItemText primary="Latest News" />
                         </ListItem>
                     </Link>
                     <Divider/>
@@ -258,20 +275,62 @@ class ResponsiveDrawer extends React.Component {
                     </Drawer>
                 </Hidden>
                 <main className={classes.content}>
-                    <Button className={classes.button} variant="raised" size="small" href="https://srikanthchebrolu.typeform.com/to/nndFWH" >
-                        <Grade className={classes.leftIcon} />
-                        Let us Know
-                    </Button>
+                    <h1>Tech News</h1>
+                    <div>
+                        {this.props.latestnews.map(function(latestnew, index){
+                            return (<div>
+                                <Card className={classes.card}>
+                                    <CardHeader
+                                        avatar={
+                                            <Avatar aria-label="Recipe" className={classes.avatar}>
+                                                R
+                                            </Avatar>
+                                        }
+                                        title={ latestnew.author }
+                                        subheader={ latestnew.publishedAt }
+                                    />
+                                    <Typography className={classes.title}>
+                                        { latestnew.title }
+                                    </Typography>
+                                    {latestnew.urlToImage !== null &&
+                                    <CardMedia
+                                        className={classes.media}
+                                        image={ latestnew.urlToImage }
+                                        title={ latestnew.title }
+                                    />
+                                    }
+
+                                    <CardContent>
+                                        <Typography component="p">
+                                            { latestnew.description }
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions>
+                                        <Button size="small" color="secondary" className={classes.button} href={ latestnew.url }>Read more</Button>
+                                    </CardActions>
+                                </Card>
+                            </div>);
+                        })}
+                    </div>
                 </main>
             </div>
         );
     }
 }
 
-ResponsiveDrawer.propTypes = {
+News.propTypes = {
     classes: PropTypes.object.isRequired,
     theme: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(ResponsiveDrawer);
 
+function mapStateToProps(state) {
+    return {
+        latestnews: state.getLatestNews.news
+    }
+}
+
+export default compose(
+    withStyles(styles, { withTheme: true }, { name: 'News' }),
+    connect(mapStateToProps, null)
+)(News);

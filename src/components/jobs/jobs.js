@@ -16,6 +16,7 @@ import Stepper, { Step, StepLabel, StepContent } from 'material-ui/Stepper';
 import {Link} from 'react-router';
 import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import Hobbies from 'material-ui-icons/ThumbUp';
+import NewReleases from 'material-ui-icons/NewReleases';
 import School from 'material-ui-icons/School';
 import Publications from 'material-ui-icons/Book';
 import Posts from 'material-ui-icons/Create';
@@ -207,6 +208,15 @@ class ResponsiveDrawer extends React.Component {
                                 <Posts />
                             </ListItemIcon>
                             <ListItemText primary="Posts" />
+                        </ListItem>
+                    </Link>
+                    <Divider/>
+                    <Link to="/news" className={classes.noUnderLine}>
+                        <ListItem button >
+                            <ListItemIcon>
+                                <NewReleases />
+                            </ListItemIcon>
+                            <ListItemText primary="Latest News" />
                         </ListItem>
                     </Link>
                     <Divider/>

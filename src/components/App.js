@@ -23,6 +23,7 @@ import Sri from 'material-ui-icons/Face';
 import Contact from 'material-ui-icons/Contacts';
 import Work from 'material-ui-icons/Work';
 import Resume from 'material-ui-icons/ImportContacts';
+import NewReleases from 'material-ui-icons/NewReleases';
 import classNames from 'classnames';
 import GifPlayer from 'react-gif-player';
 
@@ -166,6 +167,15 @@ class ResponsiveDrawer extends React.Component {
                                 <Posts />
                             </ListItemIcon>
                             <ListItemText primary="Posts" />
+                        </ListItem>
+                    </Link>
+                    <Divider/>
+                    <Link to="/news" className={classes.noUnderLine}>
+                        <ListItem button >
+                            <ListItemIcon>
+                                <NewReleases />
+                            </ListItemIcon>
+                            <ListItemText primary="Tech News" />
                         </ListItem>
                     </Link>
                     <Divider/>

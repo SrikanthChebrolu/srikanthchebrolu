@@ -1,6 +1,6 @@
 import {
     GET_USER_GITHUB_REPOSITORIES
-} from '../../actions/projects/githubprojects.action'
+} from '../../actions/githubprojects.action'
 
 export function getRepositories(state = {
     repos: [],
