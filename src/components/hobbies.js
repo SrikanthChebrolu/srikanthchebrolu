@@ -25,8 +25,8 @@ import Contact from 'material-ui-icons/Contacts';
 import Work from 'material-ui-icons/Work';
 import Resume from 'material-ui-icons/ImportContacts';
 import classNames from 'classnames';
-import Chip from '@material-ui/core/Chip';
-import PhotoCamera from '@material-ui/icons/PhotoCamera';
+import Chip from 'material-ui/core/Chip';
+import PhotoCamera from 'material-ui/icons/PhotoCamera';
 
 const drawerWidth = 240;
 const styles = theme => ({
