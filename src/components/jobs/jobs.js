@@ -88,7 +88,7 @@ const styles = theme => ({
 });
 
 function getSteps() {
-    return ['Application Developer at WellsFargo', 'Web Developer at Pfizer', 'Software Engineer at Genentech'];
+    return ['Application Developer at WellsFargo', 'Web Developer at Pfizer', 'Software Engineer at Genentech', 'Sr Software Engineer at Gap Inc'];
 }
 
 function getStepContent(step) {
