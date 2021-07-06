@@ -26,7 +26,6 @@ import Work from 'material-ui-icons/Work';
 import Resume from 'material-ui-icons/ImportContacts';
 import classNames from 'classnames';
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
-import Avatar from '@material-ui/core/Avatar';
 import Chip from '@material-ui/core/Chip';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
 
