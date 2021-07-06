@@ -24,11 +24,25 @@ import Sri from 'material-ui-icons/Face';
 import Contact from 'material-ui-icons/Contacts';
 import Work from 'material-ui-icons/Work';
 import Resume from 'material-ui-icons/ImportContacts';
+import Button from 'material-ui/Button';
+import Grade from 'material-ui-icons/Grade';
+
 import classNames from 'classnames';
-import Chip from 'material-ui/Chip';
-import PhotoCamera from 'material-ui-icons/PhotoCamera';
 
 const drawerWidth = 240;
+
+function TabContainer(props) {
+    return (
+        <Typography component="div" style={{ padding: 8 * 3 }}>
+            {props.children}
+        </Typography>
+    );
+}
+
+TabContainer.propTypes = {
+    children: PropTypes.node.isRequired,
+};
+
 const styles = theme => ({
     root: {
         flexGrow: 1,
@@ -38,14 +52,6 @@ const styles = theme => ({
         display: 'flex',
         width: '100%',
     },
-    hobbies: {
-        display: 'flex',
-        justifyContent: 'center',
-        flexWrap: 'wrap',
-        '& > *': {
-          margin: theme.spacing(0.5),
-        },
-      },
     appBar: {
         position: 'absolute',
         marginLeft: drawerWidth,
@@ -77,12 +83,22 @@ const styles = theme => ({
         },
     },
     noUnderLine: { textDecoration: 'none' },
-    textColour: { color: 'white' }
+    textColour: { color: 'white' },
+    button: {
+        margin: theme.spacing.unit,
+    },
+    leftIcon: {
+        marginRight: theme.spacing.unit,
+    },
+    rightIcon: {
+        marginLeft: theme.spacing.unit,
+    },
 });
 
 class ResponsiveDrawer extends React.Component {
     state = {
         mobileOpen: false,
+        value: 0,
     };
 
     handleDrawerToggle = () => {
@@ -172,7 +188,7 @@ class ResponsiveDrawer extends React.Component {
                             <ListItemIcon>
                                 <NewReleases />
                             </ListItemIcon>
-                            <ListItemText primary="Latest News" />
+                            <ListItemText primary="Tech News" />
                         </ListItem>
                     </Link>
                     <Divider/>
@@ -242,19 +258,10 @@ class ResponsiveDrawer extends React.Component {
                     </Drawer>
                 </Hidden>
                 <main className={classes.content}>
-                    <div className={classes.hobbies} />
-                    <Chip
-                    icon={<PhotoCamera />}
-                    label="Photography"
-                    clickable
-                    color="primary"
-                />
-                <Chip
-                    icon={<PhotoCamera />}
-                    label="Programing"
-                    clickable
-                    color="primary"
-                />
+                    <Button className={classes.button} variant="raised" size="small" href="https://srikanthchebrolu.typeform.com/to/nndFWH" >
+                        <Grade className={classes.leftIcon} />
+                        Let us Know
+                    </Button>
                 </main>
             </div>
         );
@@ -267,3 +274,4 @@ ResponsiveDrawer.propTypes = {
 };
 
 export default withStyles(styles, { withTheme: true })(ResponsiveDrawer);
+
