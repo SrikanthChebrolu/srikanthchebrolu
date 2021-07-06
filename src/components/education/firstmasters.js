@@ -76,7 +76,6 @@ class FirstMasters  extends React.Component{
                 </Paper>
                 <Paper className={classes.root}>
                     <Typography variant="headline" component="h3">
-                        This is a sheet of paper.
                     </Typography>
 
                     <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
@@ -85,8 +84,7 @@ class FirstMasters  extends React.Component{
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Typography>
-                                Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
-                                maximus est, id dignissim quam.
+                               
                             </Typography>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
@@ -96,8 +94,7 @@ class FirstMasters  extends React.Component{
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Typography>
-                                Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar
-                                diam eros in elit. Pellentesque convallis laoreet laoreet.
+
                             </Typography>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
@@ -107,8 +104,7 @@ class FirstMasters  extends React.Component{
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Typography>
-                                Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas
-                                eros, vitae egestas augue. Duis vel est augue.
+                                
                             </Typography>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
@@ -118,8 +114,7 @@ class FirstMasters  extends React.Component{
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Typography>
-                                Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas
-                                eros, vitae egestas augue. Duis vel est augue.
+                              
                             </Typography>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
@@ -129,8 +124,7 @@ class FirstMasters  extends React.Component{
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Typography>
-                                Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas
-                                eros, vitae egestas augue. Duis vel est augue.
+                                
                             </Typography>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
@@ -140,8 +134,7 @@ class FirstMasters  extends React.Component{
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Typography>
-                                Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas
-                                eros, vitae egestas augue. Duis vel est augue.
+                                
                             </Typography>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
@@ -151,8 +144,7 @@ class FirstMasters  extends React.Component{
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Typography>
-                                Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas
-                                eros, vitae egestas augue. Duis vel est augue.
+                                
                             </Typography>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
@@ -162,8 +154,7 @@ class FirstMasters  extends React.Component{
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Typography>
-                                Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas
-                                eros, vitae egestas augue. Duis vel est augue.
+                                
                             </Typography>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
@@ -173,8 +164,7 @@ class FirstMasters  extends React.Component{
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Typography>
-                                Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas
-                                eros, vitae egestas augue. Duis vel est augue.
+                                
                             </Typography>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
@@ -184,8 +174,7 @@ class FirstMasters  extends React.Component{
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Typography>
-                                Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas
-                                eros, vitae egestas augue. Duis vel est augue.
+                                
                             </Typography>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>

@@ -76,120 +76,98 @@ class SecondMasters  extends React.Component{
                 </Paper>
                 <Paper className={classes.root}>
                     <Typography variant="headline" component="h3">
-                        This is a sheet of paper.
                     </Typography>
 
                     <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                            <Typography className={classes.heading}>HDL Logic Simulation</Typography>
+                            <Typography className={classes.heading}>The UNIX/Linux OS</Typography>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Typography>
-                                Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
-                                maximus est, id dignissim quam.
+                                
                             </Typography>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
                     <ExpansionPanel expanded={expanded === 'panel2'} onChange={this.handleChange('panel2')}>
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                            <Typography className={classes.heading}>Wireless Networks</Typography>
+                            <Typography className={classes.heading}>OO programing with Java</Typography>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Typography>
-                                Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar
-                                diam eros in elit. Pellentesque convallis laoreet laoreet.
+                               
                             </Typography>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
                     <ExpansionPanel expanded={expanded === 'panel3'} onChange={this.handleChange('panel3')}>
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                            <Typography className={classes.heading}>Stochastic Processes</Typography>
+                            <Typography className={classes.heading}>Big Data</Typography>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Typography>
-                                Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas
-                                eros, vitae egestas augue. Duis vel est augue.
+                                
                             </Typography>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
                     <ExpansionPanel expanded={expanded === 'panel4'} onChange={this.handleChange('panel4')}>
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                            <Typography className={classes.heading}>Computer-Network Security</Typography>
+                            <Typography className={classes.heading}>Computer Algorithms(Online)</Typography>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Typography>
-                                Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas
-                                eros, vitae egestas augue. Duis vel est augue.
+                               
                             </Typography>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
                     <ExpansionPanel expanded={expanded === 'panel5'} onChange={this.handleChange('panel5')}>
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                            <Typography className={classes.heading}>Adv Digital Signal Processing</Typography>
+                            <Typography className={classes.heading}>Principles of OS & Distributed Systems</Typography>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Typography>
-                                Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas
-                                eros, vitae egestas augue. Duis vel est augue.
+                                
                             </Typography>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
                     <ExpansionPanel expanded={expanded === 'panel6'} onChange={this.handleChange('panel6')}>
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                            <Typography className={classes.heading}>Digital Image Processing</Typography>
+                            <Typography className={classes.heading}>Programing Language Theory</Typography>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Typography>
-                                Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas
-                                eros, vitae egestas augue. Duis vel est augue.
+                                
                             </Typography>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
                     <ExpansionPanel expanded={expanded === 'panel7'} onChange={this.handleChange('panel7')}>
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                            <Typography className={classes.heading}>Renewable Energy</Typography>
+                            <Typography className={classes.heading}>Discrete Structures(Online)</Typography>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Typography>
-                                Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas
-                                eros, vitae egestas augue. Duis vel est augue.
+                                
                             </Typography>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
                     <ExpansionPanel expanded={expanded === 'panel8'} onChange={this.handleChange('panel8')}>
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                            <Typography className={classes.heading}>Introduction to Robotics</Typography>
+                            <Typography className={classes.heading}>Advanced Computer Algorithms</Typography>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Typography>
-                                Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas
-                                eros, vitae egestas augue. Duis vel est augue.
+                               
                             </Typography>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
                     <ExpansionPanel expanded={expanded === 'panel9'} onChange={this.handleChange('panel9')}>
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                            <Typography className={classes.heading}>Digital Computer Architecture</Typography>
+                            <Typography className={classes.heading}>Capstone Project</Typography>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Typography>
-                                Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas
-                                eros, vitae egestas augue. Duis vel est augue.
+                                
                             </Typography>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
-                    <ExpansionPanel expanded={expanded === 'panel10'} onChange={this.handleChange('panel10')}>
-                        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                            <Typography className={classes.heading}>Optoelectronics</Typography>
-                        </ExpansionPanelSummary>
-                        <ExpansionPanelDetails>
-                            <Typography>
-                                Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas
-                                eros, vitae egestas augue. Duis vel est augue.
-                            </Typography>
-                        </ExpansionPanelDetails>
-                    </ExpansionPanel>
-
                 </Paper>
             </div>
         );

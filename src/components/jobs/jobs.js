@@ -88,18 +88,18 @@ const styles = theme => ({
 });
 
 function getSteps() {
-    return ['Application Developer at WellsFargo', 'Web Developer at Pfizer', 'Software Engineer at Genentech', 'Sr Software Engineer at Gap Inc'];
+    return ['Sr Software Engineer at Gap Inc','Software Engineer at Genentech', 'Web Developer at Pfizer', 'Application Developer at WellsFargo'];
 }
 
 function getStepContent(step) {
     switch (step) {
-        case 0:
+        case 3:
             return <WellsFargo/>;
-        case 1:
-            return <Pfizer/>;
         case 2:
+            return <Pfizer/>;
+        case 1:
             return <Genentech/>;
-            case 3:
+            case 0:
             return <Gap/>;
         default:
             return 'Unknown step';

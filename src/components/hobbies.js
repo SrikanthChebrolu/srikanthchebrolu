@@ -25,18 +25,21 @@ import Contact from 'material-ui-icons/Contacts';
 import Work from 'material-ui-icons/Work';
 import Resume from 'material-ui-icons/ImportContacts';
 import classNames from 'classnames';
+import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
+import Avatar from '@material-ui/core/Avatar';
+import Chip from '@material-ui/core/Chip';
+import PhotoCamera from '@material-ui/icons/PhotoCamera';
 
 const drawerWidth = 240;
-
 const styles = theme => ({
     root: {
-        flexGrow: 1,
-        zIndex: 1,
-        overflow: 'hidden',
-        position: 'relative',
         display: 'flex',
-        width: '100%',
-    },
+        justifyContent: 'center',
+        flexWrap: 'wrap',
+        '& > *': {
+          margin: theme.spacing(0.5),
+        },
+      },
     appBar: {
         position: 'absolute',
         marginLeft: drawerWidth,
@@ -233,8 +236,19 @@ class ResponsiveDrawer extends React.Component {
                     </Drawer>
                 </Hidden>
                 <main className={classes.content}>
-                    <div className={classes.toolbar} />
-                    <Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
+                    <div className={classes.root} />
+                    <Chip
+                    icon={<PhotoCamera />}
+                    label="Photography"
+                    clickable
+                    color="primary"
+                />
+                <Chip
+                    icon={<PhotoCamera />}
+                    label="Programing"
+                    clickable
+                    color="primary"
+                />
                 </main>
             </div>
         );

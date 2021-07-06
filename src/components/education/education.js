@@ -89,16 +89,16 @@ const styles = theme => ({
 
 
 function getSteps() {
-    return ['UG', 'MS-1', 'MS-2'];
+    return ['MS-CS', 'MS-EE', 'UG'];
 }
 
 function getStepContent(stepIndex) {
     switch (stepIndex) {
-        case 0:
+        case 2:
             return <UnderGraduate/>;
         case 1:
             return <FirstMasters/>;
-        case 2:
+        case 0:
             return <SecondMasters/>;
         default:
             return 'Uknown stepIndex';
