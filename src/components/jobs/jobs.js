@@ -98,6 +98,8 @@ function getStepContent(step) {
             return <Pfizer/>;
         case 2:
             return <Genentech/>;
+            case 3:
+            return <Gap/>;
         default:
             return 'Unknown step';
     }

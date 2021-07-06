@@ -8,7 +8,7 @@ import IconButton from 'material-ui/IconButton';
 import Typography from 'material-ui/Typography';
 import red from 'material-ui/colors/red';
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
-import GraduationGif from '../../static/Genentech-Roche.png';
+import GraduationGif from '../../static/GAP_Logo.webp';
 
 const styles = theme => ({
     card: {
@@ -52,15 +52,15 @@ class RecipeReviewCard extends React.Component {
         return (
             <div>
                 <Card className={classes.card}>
-                    <CardHeader subheader="March 2017 – May 2018"/>
+                    <CardHeader subheader="June 2018 – present"/>
                     <CardMedia
                         className={classes.media}
                         image={GraduationGif}
-                        title="Genentech"
+                        title="Gap"
                     />
                     <CardContent>
                         <Typography component="p">
-                            Developed an internal application for the Genentech scientists called Boomerang.
+                            Developed and enhanced an internal application for the Gap.
                         </Typography>
                     </CardContent>
                     <CardActions className={classes.actions} disableActionSpacing>
