@@ -246,7 +246,7 @@ class ResponsiveDrawer extends React.Component {
                 </Hidden>
                 <main className={classes.content}>
                     <GifPlayer className={classes.stretch} gif={ProgramerGif} still={ProgramerGif}/>
-                    <h3 className={classes.title}>I am a web developer, software engineer, and consultant currently living in San Francisco, California. My interests range from technology to design. I am also interested in entrepreneurship, programming, and web development.</h3>
+                    <h3 className={classes.title}>I am a web developer, Sr Software Engineer, currently living in Hyderabad, India. My interests range from technology to design. I am also interested in entrepreneurship, programming, web development and Photography</h3>
                 </main>
             </div>
         );

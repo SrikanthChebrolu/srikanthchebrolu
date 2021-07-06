@@ -40,6 +40,7 @@ ReactDOM.render((
                 <Route path="/projects" component={Projects}/>
                 <Route path="/publications" component={Publications}/>
                 <Route path="/education" component={Education}/>
+                <Route path="*" component={App}/>
             </Router>
         </Provider>
     </MuiThemeProvider>

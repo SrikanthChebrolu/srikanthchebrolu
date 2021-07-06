@@ -15,8 +15,8 @@ const styles = theme => ({
 
     },
     media: {
-        height: 80,
-        width: 222,
+        height: 230,
+        width: 230,
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
@@ -80,23 +80,30 @@ class RecipeReviewCard extends React.Component {
                             <Typography paragraph variant="body2">
                                 Responsibilities:
                             </Typography>
-                            <li>Followed Agile methodology to complete the project. Used Jira for bug tracker, issue tracking system and project management software. Confluence and Google Sites is used as the content management.</li>
-                            <li>Worked closely with the scientists in gathering the requirements and worked with my manager in order to develop a whole new application called Boomerang for high throughput of the scientists with whole new tech stack.</li>
-                            <li>Involved in designing the flow diagrams using gliffy</li>
-                            <li>Developed some of the wireframes using axure.</li>
-                            <li>Used distributed version control (BitBucket) as source code repository.</li>
+                            <li>Followed Agile methodology to complete the Deliverables. Used Jira for project management software. Confluence is used as the content management and the Documentation of all the Project related documentation.</li>
+                            <li>Worked closely with the Business in gathering the requirements and created the Technical Architecture diagrams and revised with the team.</li>
+                            <li>Developed some of the wireframes using Axure and revised them from the feedback with the PDM.</li>
+                            <li>Used GITHUB as source code repository.</li>
+                            <li>Using Angular5 developed the frontend of the project as a disconnected UI and developed it from scratch.</li>
+                            <li>Maintained the existing application which is developed in AngularJS 1.6.</li>
+                            <li>Followed the Microservices architecture patterns to divide the Monolith application both the UI and the backend.</li>
                             <li>Developed a RESTful web API using Spring Boot. Spring Data is used to communicate with the mongo DB.</li>
-                            <li>Integrated the swagger-ui with the back end web application for visualizing RESTful webservice.</li>
-                            <li>Maintained security authentication using Spring Security with LDAP server.</li>
+                            <li>Integrated the swagger-ui with the back-end web application for visualizing RESTful webservice.</li>
+                            <li>Maintained security authentication using Spring Security and developed the Authorization framework within our Application.</li>
+                            <li>Strong understanding on Microservices.</li>
+                            <li>Strong understanding on Solid Design Patterns.</li>
                             <li>Used Gradle as build tool for the Backend application.</li>
-                            <li>Tomcat 8 is used as application server. Used wine plugin for the deployments on the tomcat servers</li>
-                            <li>Using Angular4 developed the frontend of the project as a disconnected UI. Gulp is used as a build tool for the UI application and node server using web-pack.</li>
-                            <li>Angular routing is used to route the frontend web application.</li>
-                            <li>Used Log4J logging framework to write Log messages with various levels for logging across the application.</li>
-                            <li>Used Jenkins 2.5 for Continuous Integration and Continuous Deployment.</li>
-                            <li>Sonarqube is used for the continuous code quality.</li>
-                            <li>Monitored the mongo DB data using Robo-Mongo.</li>
+                            <li>Used Jenkins 2.5 for Continuous Integration and Continuous Deployment and automate the Views with Groovy scripts</li>
+                            <li>Used PCF for all the microservices Hosting.</li>
+                            <li>Have deployed the Applications to prod with zero downtime with Blue Green Deployment strategy</li>
+                            <li>Used Splunk to maintain the Application Logging. Also Created Dev ops dashboard in Splunk and alerts for critical features.</li>
+                            <li>Used New Relic for Application performance monitoring.</li>
+                            <li>SonarQube is used for the continuous code quality.</li>
+                            <li>Monitored the mongo DB data using Robo-Mongo, Mongo Compass.</li>
                             <li>Worked with other application teams for getting some of the data from them as Rest API.</li>
+                            <li>Migrate the Application to Azure Cloud.</li>
+                            <li>Knowledge on the APIGEE API Gateway</li>
+                            <li>Worked with Confluent Kafka</li>
                         </CardContent>
                     </Collapse>
                 </Card>
