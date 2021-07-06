@@ -31,6 +31,14 @@ import PhotoCamera from 'material-ui-icons/PhotoCamera';
 const drawerWidth = 240;
 const styles = theme => ({
     root: {
+        flexGrow: 1,
+        zIndex: 1,
+        overflow: 'hidden',
+        position: 'relative',
+        display: 'flex',
+        width: '100%',
+    },
+    hobbies: {
         display: 'flex',
         justifyContent: 'center',
         flexWrap: 'wrap',
@@ -234,7 +242,7 @@ class ResponsiveDrawer extends React.Component {
                     </Drawer>
                 </Hidden>
                 <main className={classes.content}>
-                    <div className={classes.root} />
+                    <div className={classes.hobbies} />
                     <Chip
                     icon={<PhotoCamera />}
                     label="Photography"
