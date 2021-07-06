@@ -56,7 +56,7 @@ class RecipeReviewCard extends React.Component {
                     <CardMedia
                         className={classes.media}
                         image={GraduationGif}
-                        title="Gap"
+                        title="Gap Inc."
                     />
                     <CardContent>
                         <Typography component="p">

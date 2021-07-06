@@ -30,6 +30,7 @@ import Paper from 'material-ui/Paper';
 import WellsFargo from './wellsfargo';
 import Pfizer from './pfizer';
 import Genentech from './genentech';
+import Gap from './gap';
 
 const drawerWidth = 240;
 
