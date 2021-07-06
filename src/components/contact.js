@@ -183,15 +183,6 @@ class ResponsiveDrawer extends React.Component {
                         </ListItem>
                     </Link>
                     <Divider/>
-                    <Link to="/news" className={classes.noUnderLine}>
-                        <ListItem button >
-                            <ListItemIcon>
-                                <NewReleases />
-                            </ListItemIcon>
-                            <ListItemText primary="Tech News" />
-                        </ListItem>
-                    </Link>
-                    <Divider/>
                     <Link to="/contact" className={classes.noUnderLine}>
                         <ListItem button>
                             <ListItemIcon>
