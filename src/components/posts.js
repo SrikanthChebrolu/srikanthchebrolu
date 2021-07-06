@@ -234,7 +234,7 @@ class ResponsiveDrawer extends React.Component {
                 </Hidden>
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
-                    <Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
+                    <Typography noWrap>{'Currently no posts are available'}</Typography>
                 </main>
             </div>
         );
