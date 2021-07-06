@@ -258,10 +258,7 @@ class ResponsiveDrawer extends React.Component {
                     </Drawer>
                 </Hidden>
                 <main className={classes.content}>
-                    <Button className={classes.button} variant="raised" size="small" href="https://srikanthchebrolu.typeform.com/to/nndFWH" >
-                        <Grade className={classes.leftIcon} />
-                        Let us Know
-                    </Button>
+                    
                 </main>
             </div>
         );
