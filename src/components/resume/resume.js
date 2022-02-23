@@ -11,7 +11,6 @@ import Hidden from 'material-ui/Hidden';
 import Divider from 'material-ui/Divider';
 import MenuIcon from 'material-ui-icons/Menu';
 import Avatar from 'material-ui/Avatar';
-import { Document } from 'react-pdf';
 
 import {Link} from 'react-router';
 import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
@@ -183,68 +182,61 @@ class ResponsiveDrawer extends React.Component {
         );
 
         return (
-          <div className={classes.root}>
-            <AppBar className={classes.appBar}>
-              <Toolbar>
-                <IconButton
-                  color="inherit"
-                  aria-label="open drawer"
-                  onClick={this.handleDrawerToggle}
-                  className={classes.navIconHide}
-                >
-                  <MenuIcon />
-                </IconButton>
-                <Link to="/" className={classes.noUnderLine}>
-                  <Avatar
-                    alt="Srikanth Chebrolu"
-                    src="sri.jpg"
-                    className={classNames(classes.avatar, classes.bigAvatar)}
-                  />
-                </Link>
-                <Link to="/" className={classes.noUnderLine}>
-                  <Typography
-                    variant="title"
-                    noWrap
-                    className={classes.textColour}
-                  >
-                    Srikanth Chebrolu
-                  </Typography>
-                </Link>
-              </Toolbar>
-            </AppBar>
-            <Hidden mdUp>
-              <Drawer
-                variant="temporary"
-                anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-                open={this.state.mobileOpen}
-                onClose={this.handleDrawerToggle}
-                classes={{
-                  paper: classes.drawerPaper
-                }}
-                ModalProps={{
-                  keepMounted: true // Better open performance on mobile.
-                }}
-              >
-                {drawer}
-              </Drawer>
-            </Hidden>
-            <Hidden smDown implementation="css">
-              <Drawer
-                variant="permanent"
-                open
-                classes={{
-                  paper: classes.drawerPaper
-                }}
-              >
-                {drawer}
-              </Drawer>
-            </Hidden>
-            <main className={classes.content}>
-              <a href={resume}>Resume ad PDF file</a>
-              <Document file="resume">
-              </Document>
-            </main>
-          </div>
+            <div className={classes.root}>
+                <AppBar className={classes.appBar}>
+                    <Toolbar>
+                        <IconButton
+                            color="inherit"
+                            aria-label="open drawer"
+                            onClick={this.handleDrawerToggle}
+                            className={classes.navIconHide}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <Link to="/"  className={classes.noUnderLine}>
+                            <Avatar
+                                alt="Srikanth Chebrolu"
+                                src="sri.jpg"
+                                className={classNames(classes.avatar, classes.bigAvatar)}/>
+                        </Link>
+                        <Link to="/"  className={classes.noUnderLine}>
+                            <Typography variant="title" noWrap  className={classes.textColour}>
+                                Srikanth Chebrolu
+                            </Typography>
+                        </Link>
+                    </Toolbar>
+                </AppBar>
+                <Hidden mdUp>
+                    <Drawer
+                        variant="temporary"
+                        anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+                        open={this.state.mobileOpen}
+                        onClose={this.handleDrawerToggle}
+                        classes={{
+                            paper: classes.drawerPaper,
+                        }}
+                        ModalProps={{
+                            keepMounted: true, // Better open performance on mobile.
+                        }}
+                    >
+                        {drawer}
+                    </Drawer>
+                </Hidden>
+                <Hidden smDown implementation="css">
+                    <Drawer
+                        variant="permanent"
+                        open
+                        classes={{
+                            paper: classes.drawerPaper,
+                        }}
+                    >
+                        {drawer}
+                    </Drawer>
+                </Hidden>
+                <main className={classes.content}>
+                    <a href={resume}>Resume ad PDF file</a>
+                </main>
+            </div>
         );
     }
 }
