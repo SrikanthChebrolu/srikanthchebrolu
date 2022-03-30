@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+$messagefile = ARGV[0]
+
+$regex = /[a-zA-z]+-[0-9]+\s*\[[a-zA-Z,\s]+\].*/
+
+# enforced custom commit message format
+def check_message_format
+	f = File.open($messagefile, "r")
+		if !$regex.match(f.readline)
+			puts "*********************************************************************************"
+			puts "*                            **** COMMIT BLOCKED ****                           *"
+			puts "* Your commit has been blocked because of an incorrect commit message.          *"
+			puts "*                                                                               *"
+			puts "* Ensure your commit message follows the pattern:                               *"
+			puts "* (JIRA project)-XXX [dev name(s)]  Change details                              *"
+			puts "*                                                                               *"
+			puts "* NOTE: If you do not have a JIRA project/Stoy please enter 'JIRA-020'          *"
+			puts "* eg: JIRA-000 [Srikanth Chebrolu] Adding new lines to make some thing work.    *"
+			puts "*                                                                               *"
+			puts "*                             ------Thank you------                             *"
+			puts "*********************************************************************************"
+			exit 1
+		end
+	f.close
+end
+check_message_format
